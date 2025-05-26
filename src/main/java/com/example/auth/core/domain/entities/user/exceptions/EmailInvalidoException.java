@@ -1,0 +1,7 @@
+package com.example.auth.core.domain.entities.user.exceptions;
+
+public class EmailInvalidoException extends RuntimeException {
+    public EmailInvalidoException(String email) {
+        super("Email inválido: " + email);
+    }
+}
