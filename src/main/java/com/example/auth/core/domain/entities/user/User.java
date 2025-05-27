@@ -17,6 +17,10 @@ public class User {
 
     private String senha;
 
+    public User() {
+
+    }
+
     public Long getId() {
         return id;
     }

@@ -1,18 +1,18 @@
 package com.example.auth.core.usecases.users;
 import com.example.auth.core.domain.entities.user.User;
 import com.example.auth.core.gateway.PasswordEncoderGateway;
-import com.example.auth.core.gateway.UserRepository;
+import com.example.auth.core.gateway.UserGateway;
 
 
-public class CreateUseCaseImpl implements CreateUseCase{
+public class CreateUserUseCaseImpl implements CreateUseCase{
 
-    private final UserRepository userRepository;
+    private final UserGateway userGateway;
 
     private final PasswordEncoderGateway passwordEncoder;
 
 
-    public CreateUseCaseImpl(UserRepository userRepository, PasswordEncoderGateway passwordEncoder) {
-        this.userRepository = userRepository;
+    public CreateUserUseCaseImpl(UserGateway userGateway, PasswordEncoderGateway passwordEncoder) {
+        this.userGateway = userGateway;
 
         this.passwordEncoder = passwordEncoder;
     }
@@ -21,6 +21,6 @@ public class CreateUseCaseImpl implements CreateUseCase{
     public User execute(User userRequest) {
         String senhaEncriptada = passwordEncoder.encode(userRequest.getSenha());
         User user = new User(userRequest.getEmail(), userRequest.getNome(), senhaEncriptada);
-        return userRepository.save(user);
+        return userGateway.save(user);
     }
 }
