@@ -1,4 +1,4 @@
-package com.example.auth.core.domain.entities.user.exceptions;
+package com.example.auth.core.domain.entities.exceptions;
 
 public class NomeInvalidoException extends RuntimeException {
     public NomeInvalidoException(String nome) {

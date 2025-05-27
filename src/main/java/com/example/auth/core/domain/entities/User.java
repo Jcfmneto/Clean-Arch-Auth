@@ -1,8 +1,8 @@
-package com.example.auth.core.domain.entities.user;
+package com.example.auth.core.domain.entities;
 
-import com.example.auth.core.domain.entities.user.exceptions.EmailInvalidoException;
-import com.example.auth.core.domain.entities.user.exceptions.NomeInvalidoException;
-import com.example.auth.core.domain.entities.user.exceptions.SenhaInvalidaException;
+import com.example.auth.core.domain.entities.exceptions.EmailInvalidoException;
+import com.example.auth.core.domain.entities.exceptions.NomeInvalidoException;
+import com.example.auth.core.domain.entities.exceptions.SenhaInvalidaException;
 
 public class User {
 

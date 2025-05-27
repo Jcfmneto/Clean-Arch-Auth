@@ -1,5 +1,5 @@
-package com.example.auth.core.usecases.users;
-import com.example.auth.core.domain.entities.user.User;
+package com.example.auth.core.usecases;
+import com.example.auth.core.domain.entities.User;
 import com.example.auth.core.gateway.PasswordEncoderGateway;
 import com.example.auth.core.gateway.UserGateway;
 

@@ -1,6 +1,6 @@
 package com.example.auth.infra.persistence.gateways;
 
-import com.example.auth.core.domain.entities.user.User;
+import com.example.auth.core.domain.entities.User;
 import com.example.auth.core.gateway.UserGateway;
 import com.example.auth.infra.persistence.entity.UserEntity;
 import com.example.auth.infra.persistence.mapper.UserMapper;

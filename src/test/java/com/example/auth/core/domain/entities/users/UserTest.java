@@ -1,9 +1,9 @@
 package com.example.auth.core.domain.entities.users;
 
-import com.example.auth.core.domain.entities.user.exceptions.EmailInvalidoException;
-import com.example.auth.core.domain.entities.user.exceptions.NomeInvalidoException;
-import com.example.auth.core.domain.entities.user.exceptions.SenhaInvalidaException;
-import com.example.auth.core.domain.entities.user.User;
+import com.example.auth.core.domain.entities.exceptions.EmailInvalidoException;
+import com.example.auth.core.domain.entities.exceptions.NomeInvalidoException;
+import com.example.auth.core.domain.entities.exceptions.SenhaInvalidaException;
+import com.example.auth.core.domain.entities.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

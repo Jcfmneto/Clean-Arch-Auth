@@ -1,6 +1,0 @@
-
-
-spring.datasource.url=jdbc:postgresql://localhost:5432/minha_base
-spring.datasource.password=sua_senha
-spring.datasource.username=seu_usuario
-
