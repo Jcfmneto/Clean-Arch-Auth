@@ -33,14 +33,13 @@ public class JwtFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token = recuperatoken(request);
 
-        if(token != null){
+        if (token != null) {
             var subject = tokenProviderGateway.verifyToken(token);
-            var user = userGateway.findByEmail(subject).orElse(null);
-
-            UserPrincipal principal = new UserPrincipal(user);
-
-            var authentication = new UsernamePasswordAuthenticationToken(principal.getUsername(), null, principal.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            userGateway.findByEmail(subject).ifPresent(user -> {
+                var principal = new UserPrincipal(user);
+                var auth = new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            });
         }
         filterChain.doFilter(request, response);
     }
