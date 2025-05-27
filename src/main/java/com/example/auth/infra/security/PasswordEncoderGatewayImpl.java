@@ -1,4 +1,4 @@
-package com.example.auth.infra.persistence.gateways;
+package com.example.auth.infra.security;
 
 import com.example.auth.core.gateway.PasswordEncoderGateway;
 import org.springframework.security.crypto.password.PasswordEncoder;

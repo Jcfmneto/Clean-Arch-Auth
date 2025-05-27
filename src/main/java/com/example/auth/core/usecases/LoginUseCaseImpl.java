@@ -29,10 +29,7 @@ public class LoginUseCaseImpl implements LoginUseCase {
         if(!passwordEncoderGateway.validate(loginUser.getSenha(), user.getSenha())){
             throw new SenhaInvalidaException(user.getSenha());
         }
-
-        String token = "djosandasndoasdoodas";
-
+        String token = tokenProviderGateway.createToken(loginUser.getEmail());
         return token;
-
     }
 }
