@@ -17,4 +17,9 @@ public class PasswordEncoderGatewayImpl implements PasswordEncoderGateway {
     public String encode(String senha) {
         return passwordEncoder.encode(senha);
     }
+
+    @Override
+    public boolean validate(String senha, String senhaCriptografada) {
+        return passwordEncoder.matches(senha, senhaCriptografada);
+    }
 }

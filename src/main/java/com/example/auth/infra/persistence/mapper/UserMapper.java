@@ -1,6 +1,6 @@
 package com.example.auth.infra.persistence.mapper;
 
-import com.example.auth.core.domain.entities.User;
+import com.example.auth.core.domain.entities.user.User;
 import com.example.auth.infra.persistence.entity.UserEntity;
 
 public class UserMapper {

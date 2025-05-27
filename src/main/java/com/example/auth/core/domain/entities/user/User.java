@@ -1,4 +1,4 @@
-package com.example.auth.core.domain.entities;
+package com.example.auth.core.domain.entities.user;
 
 import com.example.auth.core.domain.entities.exceptions.EmailInvalidoException;
 import com.example.auth.core.domain.entities.exceptions.NomeInvalidoException;
@@ -20,6 +20,8 @@ public class User {
     public User() {
 
     }
+
+
 
     public Long getId() {
         return id;
@@ -72,4 +74,10 @@ public class User {
         this.nome = nome;
         this.senha = senha;
     }
+
+    public User(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
+
 }

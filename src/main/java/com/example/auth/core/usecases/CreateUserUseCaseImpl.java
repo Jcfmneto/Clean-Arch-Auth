@@ -1,7 +1,8 @@
 package com.example.auth.core.usecases;
-import com.example.auth.core.domain.entities.User;
+import com.example.auth.core.domain.entities.user.User;
 import com.example.auth.core.gateway.PasswordEncoderGateway;
 import com.example.auth.core.gateway.UserGateway;
+
 
 
 public class CreateUserUseCaseImpl implements CreateUseCase{
