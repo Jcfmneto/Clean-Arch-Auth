@@ -6,7 +6,7 @@ import com.example.auth.core.gateway.TokenProviderGateway;
 import com.example.auth.core.gateway.UserGateway;
 import com.example.auth.core.usecases.CreateUserUseCaseImpl;
 import com.example.auth.core.usecases.LoginUseCaseImpl;
-import com.example.auth.infra.controllers.dto.UserDtoMapper;
+import com.example.auth.infra.controllers.dto.mappers.UserDtoMapper;
 import com.example.auth.infra.security.PasswordEncoderGatewayImpl;
 import com.example.auth.infra.persistence.gateways.UserGatewayImpl;
 import com.example.auth.infra.persistence.mapper.UserMapper;

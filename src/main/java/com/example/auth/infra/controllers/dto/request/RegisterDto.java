@@ -1,11 +1,10 @@
-package com.example.auth.infra.controllers.dto;
+package com.example.auth.infra.controllers.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public record UserDTO(
+public record RegisterDto(
 
         @Email
         String email,

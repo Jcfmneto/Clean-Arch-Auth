@@ -4,14 +4,17 @@ package com.example.auth.infra.controllers;
 import com.example.auth.core.domain.entities.user.User;
 import com.example.auth.core.usecases.CreateUserUseCaseImpl;
 import com.example.auth.core.usecases.LoginUseCaseImpl;
-import com.example.auth.infra.controllers.dto.LoginDTO;
-import com.example.auth.infra.controllers.dto.UserDTO;
-import com.example.auth.infra.controllers.dto.UserDtoMapper;
+import com.example.auth.infra.controllers.dto.request.LoginDTO;
+import com.example.auth.infra.controllers.dto.response.TokenResponse;
+import com.example.auth.infra.controllers.dto.request.RegisterDto;
+import com.example.auth.infra.controllers.dto.mappers.UserDtoMapper;
+import com.example.auth.infra.controllers.dto.response.UserResponseDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/auth")
 public class UserController {
@@ -29,18 +32,18 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> createUser(@RequestBody @Valid UserDTO dto){
-       User user = userDtoMapper.toDomain(dto);
+    public ResponseEntity<UserResponseDto> register(@RequestBody @Valid RegisterDto dto){
+       User user = userDtoMapper.registerToDomain(dto);
        User salvo = createUser.execute(user);
-       UserDTO resposta = userDtoMapper.toDto(salvo);
+       UserResponseDto resposta = userDtoMapper.userToResponse(salvo);
        return ResponseEntity.status(HttpStatus.CREATED).body(resposta);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> updateUser(@RequestBody @Valid LoginDTO dto){
-        User user = userDtoMapper.LoginToDomain(dto);
-        var resposta = login.execute(user);
-        return ResponseEntity.status(HttpStatus.OK).body(resposta);
+    public ResponseEntity<TokenResponse> login(@RequestBody @Valid LoginDTO dto){
+        User user = userDtoMapper.loginToDomain(dto);
+        String resposta = login.execute(user);
+        return ResponseEntity.ok(new TokenResponse(resposta));
     }
 
 }

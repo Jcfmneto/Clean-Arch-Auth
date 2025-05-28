@@ -1,4 +1,4 @@
-package com.example.auth.infra.controllers.dto;
+package com.example.auth.infra.controllers.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
