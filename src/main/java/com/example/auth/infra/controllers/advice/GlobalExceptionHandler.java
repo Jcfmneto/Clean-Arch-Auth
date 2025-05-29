@@ -16,37 +16,42 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(EmailInvalidoException.class)
-    public ResponseEntity<ErrorResponse> handleEmailInvalidoException(EmailInvalidoException exception, HttpStatus status) {
-        return buildResponse(exception, status);
+    public ResponseEntity<ErrorResponse> handleEmailInvalidoException(EmailInvalidoException exception) {
+        return buildResponse(exception, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(EmailNaoEncontradoException.class)
-    public ResponseEntity<ErrorResponse> handleEmailNaoEncontradoException(EmailNaoEncontradoException exception, HttpStatus status) {
-        return buildResponse(exception, status);
+    public ResponseEntity<ErrorResponse> handleEmailNaoEncontradoException(EmailNaoEncontradoException exception) {
+        return buildResponse(exception, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(NomeInvalidoException.class)
-    public ResponseEntity<ErrorResponse> handleNomeInvalidoException(NomeInvalidoException exception, HttpStatus status) {
-        return buildResponse(exception, status);
+    public ResponseEntity<ErrorResponse> handleNomeInvalidoException(NomeInvalidoException exception) {
+        return buildResponse(exception, HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(SenhaInvalidaException.class)
-    public ResponseEntity<ErrorResponse> handleSenhaInvalidaException(SenhaInvalidaException exception, HttpStatus status) {
-        return buildResponse(exception, status);
+    public ResponseEntity<ErrorResponse> handleSenhaInvalidaException(SenhaInvalidaException exception) {
+        return buildResponse(exception, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(JWTCreationException.class)
-    public ResponseEntity<ErrorResponse> handleJWTCreationException(JWTCreationException exception, HttpStatus status) {
-        return buildResponse(exception, status);
+    public ResponseEntity<ErrorResponse> handleJWTCreationException(JWTCreationException exception) {
+        return buildResponse(exception, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(JWTDecodeException.class)
-    public ResponseEntity<ErrorResponse> handleJWTDecodeException(JWTDecodeException exception, HttpStatus status) {
-        return buildResponse(exception, status);
+    public ResponseEntity<ErrorResponse> handleJWTDecodeException(JWTDecodeException exception) {
+        return buildResponse(exception, HttpStatus.UNAUTHORIZED);
     }
 
     private ResponseEntity<ErrorResponse> buildResponse(Exception ex, HttpStatus status) {
-        ErrorResponse error = new  ErrorResponse(ex.getMessage(), ex.getClass().getSimpleName(), status.value(), LocalDateTime.now());
+        ErrorResponse error = new ErrorResponse(
+                ex.getMessage(),
+                ex.getClass().getSimpleName(),
+                status.value(),
+                LocalDateTime.now()
+        );
         return ResponseEntity.status(status).body(error);
     }
-
 }
