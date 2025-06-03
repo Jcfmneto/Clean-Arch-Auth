@@ -4,19 +4,6 @@ Este projeto é uma API de autenticação desenvolvida em **Java 17** com **Spri
 
 ---
 
-## 📚 Índice
-
-- [Visão Geral](#visão-geral)
-- [Arquitetura e Estrutura de Pastas](#arquitetura-e-estrutura-de-pastas)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Como Executar](#como-executar)
-- [Endpoints](#endpoints)
-- [Testes](#testes)
-- [Licença](#licença)
-- [Contribuindo](#contribuindo)
-
----
-
 ## 🔍 Visão Geral
 
 A proposta do projeto é implementar uma API de autenticação que siga os princípios da Clean Architecture, separando claramente as responsabilidades entre regras de negócio, casos de uso, infraestrutura e exposição (controllers). Isso permite um alto nível de independência entre as camadas, facilitando testes e manutenção do sistema.
